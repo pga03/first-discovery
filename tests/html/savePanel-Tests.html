@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Save Panel Test</title>
+
+<link rel="stylesheet" media="screen" href="../lib/infusion/lib/qunit/css/qunit.css" />
+<link rel="stylesheet" media="screen" href="../../src/css/style.css" />
+
+<script src="../lib/infusion/lib/qunit/js/qunit.js"></script>
+<script src="../../src/lib/infusion/infusion-custom.js"></script>
+<script src="../lib/infusion/test-core/jqUnit/js/jqUnit.js"></script>
+<script src="../lib/infusion/lib/mockjax/js/jquery.mockjax.js"></script>
+<script src="../lib/infusion/test-core/jqUnit/js/jqUnit-browser.js"></script>
+<script src="../lib/infusion/test-core/utils/js/IoCTestUtils.js"></script>
+
+<script src="../../src/js/tooltip.js"></script>
+<script src="../../src/js/msgLookup.js"></script>
+<script src="../../src/js/stickyKeysAdjuster.js"></script>
+<script src="../../src/js/stickyKeysAssessment.js"></script>
+<script src="../../src/js/keyboardInput.js"></script>
+<script src="../../src/js/panels.js"></script>
+<!-- The sticky keys tests are added to reuse the gpii.tests.keyboard.stickyKeysAdjusterTester.verifyInitialRendering function -->
+<script src="../js/stickyKeysAdjusterTests.js"></script>
+<script src="../js/testUtils.js"></script>
+<script src="../../src/js/panels.js"></script>
+<script src="../js/savePanelTests.js"></script>
+</head>
+
+<body id="body">
+	<h1 id="qunit-header">Save Panel Test</h1>
+	<h2 id="qunit-banner"></h2>
+	<div id="qunit-testrunner-toolbar"></div>
+	<h2 id="qunit-userAgent"></h2>
+	<ol id="qunit-tests"></ol>
+
+	<!-- Test Save Panel -->
+	<p class="gpiic-fd-save-message gpiic-fd-instructions gpii-fd-instructions"></p>
+	<section class="gpiic-fd-prefsEditor-panel-save gpiic-fd-prefsEditor-panel gpii-fd-prefsEditor-panel-save gpii-fd-main"></section>
+	
+
+
+</body>
+</html>
