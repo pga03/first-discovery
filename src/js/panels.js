@@ -1079,35 +1079,36 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
             "gpii.firstDiscovery.confirm": {}
         },
         selectors: {
-            message: ".gpiic-fd-confirm-message",
-
-            language: "languageConfirmation",
-            languageLabel: "languageLabel",
-
-            speak: "speakConfirmation",
-            speakLabel: "speakLabel",
-
-            speechRate: "speechRateConfirmation",
-            speechRateLabel: "speechRateLabel",
-
-            contrast: "contrastConfirmation",
-            contrastLabel: "contrastLabel",
-
-            textSize: "textSizeConfirmation",
-            textSizeLabel: "textSizeLabel",
-
-            onScreenKeyboard: "onScreenKeyboardConfirmation",
-            onScreenKeyboardLabel: "onScreenKeyboardLabel",
-
-            captions: "captionsConfirmation",
-            captionsLabel: "captionsLabel",
-
-            showSounds: "showSoundsConfirmation",
-            showSoundsLabel: "showSoundsLabel",
-
+           
+        	message: ".gpiic-fd-confirm-message",
+         
+        	language: "languageConfirmation",
+        	languageLabel: "languageLabel",
+        	
+        	speak: "speakConfirmation",
+        	speakLabel: "speakLabel",
+        	
+        	speechRate: "speechRateConfirmation",
+        	speechRateLabel: "speechRateLabel",
+        	
+        	contrast: "contrastConfirmation",
+        	contrastLabel: "contrastLabel",
+        	
+        	textSize: "textSizeConfirmation",
+        	textSizeLabel: "textSizeLabel",
+        	
+        	onScreenKeyboard: "onScreenKeyboardConfirmation",
+        	onScreenKeyboardLabel: "onScreenKeyboardLabel",
+        	
+        	captions: "captionsConfirmation",
+        	captionsLabel: "captionsLabel",
+        	
+        	showSounds: "showSoundsConfirmation",
+        	showSoundsLabel: "showSoundsLabel",
+        	
             stickyKeys: "stickyKeysConfirmation",
-            stickyKeysLabel: "stickyKeysLabel"
-
+            stickyKeysLabel: "stickyKeysLabel"           
+                     
         },
         protoTree: {
             message: {
