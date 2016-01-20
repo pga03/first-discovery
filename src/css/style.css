@@ -507,6 +507,10 @@ button {
     content: "\e608";
 }
 
+.gpii-fd-font:before {
+    content: "\e608";
+}
+
 .gpii-fd-volume:before {
     content: "\e609";
 }
@@ -1126,8 +1130,8 @@ html:lang(es-MX) .gpii-fd-keyboard-accommodationToggle {
   bottom: 0;
   width:179%;
   height:100%;
-  background-color:#425165; 
-  margin-left:10px; 
+  background-color:#425165;
+  margin-left:10px;
   padding:20px;
 }
 

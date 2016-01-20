@@ -1,0 +1,10 @@
+{
+  "instructions": "Do you want to use a Dyslexia-friendly font?",
+  "no": "No",
+  "yes": "Yes",
+
+  "yes-tooltip": "Select to turn Dyslexia-friendly font on",
+  "no-tooltip": "Select to turn Dyslexia-friendly font off",
+  "yes-tooltipAtSelect": "Dyslexia-friendly font is on",
+  "no-tooltipAtSelect": "Dyslexia-friendly font is off"
+}
