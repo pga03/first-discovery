@@ -351,7 +351,9 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
     // Will need to construct a mock TTS which will allow for the
     // verification of queued speech.
     // see: https://issues.fluidproject.org/browse/FLOE-370
-
+    /*
+     * Sticky Keys Panel
+     */
     fluid.registerNamespace("gpii.firstDiscovery.panel.keyboardTts");
 
     // Reads the instructions at the various stages of the panels workflow
@@ -1061,6 +1063,9 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
         preferenceMap: {
             "gpii.firstDiscovery.confirm": {}
         },
+        model: {
+        	prefEditor : "{fluid.prefs.prefsEditor}.model.preferences"
+        },
         selectors: {
             message: ".gpiic-fd-confirm-message",
 
@@ -1098,9 +1103,10 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
             }
         },
         modelListeners: {
-            "{fluid.prefs.prefsEditor}.model.preferences": {
+        	"{prefsEditor}.model.preferences":  {
                 funcName: "gpii.firstDiscovery.panel.confirm.updatePreferenceValues",
-                args: ["{that}", "{change}"]
+                excludeSource: "init",
+                args: ["{prefsEditor}.model.preferences", "{change}"]
             }
         },
         friendlyNames: {

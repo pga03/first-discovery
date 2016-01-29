@@ -1,4 +1,4 @@
-/*!
+/*
 Copyright 2015 OCAD University
 
 Licensed under the New BSD license. You may not use this file except in
@@ -1108,6 +1108,98 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
     });
 
     /*******************
+     * confirm         *
+     *******************/
+    /*gpii.tests.firstDiscovery.confirmPreferences = {
+            fluid_prefs_contrast: "bw", 
+            fluid_prefs_textSize: 1, 
+            gpii_firstDiscovery_captions: true,
+            gpii_firstDiscovery_language: "en-US",
+            gpii_firstDiscovery_onScreenKeyboard: true,
+            gpii_firstDiscovery_showSounds: true,
+            gpii_firstDiscovery_speak: false,
+            gpii_firstDiscovery_speechRate: 1,
+            gpii_firstDiscovery_stickyKeys: false
+    }*/
+    //The component under test
+    fluid.defaults("gpii.tests.firstDiscovery.panel.confirm", {
+        gradeNames: ["gpii.firstDiscovery.panel.confirm"],
+        messageBase: {
+            "message" : "<p2>Please confirm your preference selections by clicking the next button, or navigate back using the links below.</p2>",
+            "languageLabel": "languageLabel"
+        },
+       
+        confirmArrayIndex: {
+        	label: ["languageLabel","speakLabel","speechRateLabel","contrastLabel","textSizeLabel",
+        	        "onScreenKeyboardLabel","captionsLabel","showSoundsLabel","stickyKeysLabel"],
+        	link:  ["languageConfirmation","speakConfirmation","speechRateConfirmation","contrastConfirmation","textSizeConfirmation",
+        	        "onScreenKeyboardConfirmation","captionsConfirmation","showSoundsConfirmation","stickyKeysConfirmation"]
+        }
+    });
+
+    //The context panel
+    fluid.defaults("gpii.tests.firstDiscovery.confirmPanelInContext", {
+    	gradeNames: ["fluid.component"],
+    	components: {
+    		confirmPanel: {
+    			type: "gpii.tests.firstDiscovery.panel.confirm",
+    			container: ".gpiic-fd-confirm",
+    		},
+    		prefsEditor: {
+    			type: "fluid.prefs.prefsEditor"
+    		}
+    	}
+    });
+    
+    //Define the test environment. 
+    fluid.defaults("gpii.tests.confirmPanel", {
+        gradeNames: ["fluid.test.testEnvironment"],
+        components: {
+            confirmPanelInContext: {
+                type: "gpii.tests.firstDiscovery.confirmPanelInContext"
+            },
+            confirmTester: {
+                type: "gpii.tests.confirmTester"
+            }
+        }
+    });
+    
+    fluid.defaults("gpii.tests.confirmTester", {
+    	gradeNames: ["fluid.test.testCaseHolder"],
+    	modules: [{
+    		name: "Tests the confirm component",
+    		tests: [{
+    			expect: 2,
+    			name: "Initialization",
+    			sequence: [{
+    				func: "{confirmPanelInContext}.confirmPanel.refreshView"
+    			},{
+    				listener: "gpii.tests.confirmRendering",
+    				args: ["{confirmPanelInContext}.confirmPanel"],
+    				event: "{confirmPanelInContext}.confirmPanel.events.afterRender"
+    			},{
+    				func: "{confirmPanelInContext}.confirmPanel.refreshView"
+    			},{
+    				listener: "gpii.tests.confirmLabelRendering",
+    				args: ["{confirmPanelInContext}.confirmPanel"],
+    				event: "{confirmPanelInContext}.confirmPanel.events.afterRender"
+    			}]
+    		}]
+    	}]
+    });
+    
+    gpii.tests.confirmRendering = function (that) {
+        var expectedContent = $(that.options.messageBase.message).text();
+        jqUnit.assertEquals("The description should be rendered correctly", expectedContent, that.locate("message").text());
+    };
+   
+    gpii.tests.confirmLabelRendering = function (that) {
+    	var expectedContent = $(that.options.messageBase.languageLabel).text(); 
+    	jqUnit.assertEquals("The confirmation language label is rendered correctly", expectedContent, that.locate("languageLabel").text());
+    };
+
+    
+    /*******************
      * congratulations *
      *******************/
 
@@ -1305,6 +1397,7 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
             "gpii.tests.contrastPanel",
             "gpii.tests.keyboardPanel",
             "gpii.tests.welcomePanel",
+            "gpii.tests.confirmPanel",
             "gpii.tests.congratulationsPanel",
             "gpii.tests.tokenPanelTests",
             // Run tests for the language panel at the end to work around the Chrome issue that key up/down actions in the scrolling
