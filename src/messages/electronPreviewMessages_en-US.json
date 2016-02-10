@@ -77,8 +77,8 @@
     },
     {
       "text": "Share",
-      "tooltip": "Select to download",
-      "tts": "Select to download"
+      "tooltip": "Select to share",
+      "tts": "Select to share"
     },
     {
       "text": "Show Details",
@@ -151,7 +151,8 @@
   ],
   "miscText": [
     {
-      "text": "1. Electron <br><br>2. Neutron <br><br>3. Proton"
+      "text": "1. Electron <br><br>2. Neutron <br><br>3. Proton",
+      "tts": "1. Electron. 2. Neutron. 3. Proton"
     },
     {
       "text": "Q: How many electrons can there be in each type of orbital shown above?<br><br>A: There can be a maximum of two electrons in any orbital, regardless of its shape.<br><br>Q: Where is the nucleus in each orbital?<br><br>A: The nucleus is at the center of each orbital. It is in the middle of the sphere in the S orbital and in the pinched part of the P orbital.",
