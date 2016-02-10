@@ -2,7 +2,6 @@
   "pageHeader": "Demonstration Open Learning",
   "pageTitle": "Electrons",
 
-  //top toolbar unvoiced text
   "inactiveLinks": [
     {
       "text": "Read"
@@ -25,14 +24,10 @@
 
   ],
   "buttons": [
-
-    //Back button
     {
       "tooltip": "Select to go to previous page",
       "tts": "Select to go to previous page"
     },
-
-    //Next button
     {
       "tooltip": "Select to go to next page",
       "tts": "Select to go to next page"
@@ -40,8 +35,6 @@
   ],
 
   "activeLinks": [
-
-    //Search Bar
     {
       "text": "SEARCH",
       "tooltip": "This is a search bar to search this website",
@@ -52,8 +45,6 @@
       "tooltip": "Select to search this website",
       "tts": "Select to search this website"
     },
-
-    //Navigation Links
     {
       "text": "Physical Science",
       "tooltip": "Select to go back to the physical science category",
@@ -64,8 +55,6 @@
       "tooltip": "Select to navigate to electrons page",
       "tts": "Select to navigate to electrons page"
     },
-
-    //Left-side panel links
     {
       "text": "Make a Copy",
       "tooltip": "Select to make a copy",
@@ -91,8 +80,6 @@
       "tooltip": "Select to download",
       "tts": "Select to download"
     },
-
-    //Bottom page links
     {
       "text": "Show Details",
       "tooltip": "Select to show page details",
@@ -163,18 +150,13 @@
     }
   ],
   "miscText": [
-    //Key for 'model of atomic structure'
     {
       "text": "1. Electron <br><br>2. Neutron <br><br>3. Proton"
     },
-
-    //Q&A for 'orbitals'
     {
       "text": "Q: How many electrons can there be in each type of orbital shown above?<br><br>A: There can be a maximum of two electrons in any orbital, regardless of its shape.<br><br>Q: Where is the nucleus in each orbital?<br><br>A: The nucleus is at the center of each orbital. It is in the middle of the sphere in the S orbital and in the pinched part of the P orbital.",
       "tts": "Question: How many electrons can there be in each type of orbital shown above? Answer: There can be a maximum of two electrons in any orbital, regardless of its shape. Question: Where is the nucleus in each orbital? Answer: The nucleus is at the center of each orbital. It is in the middle of the sphere in the S orbital and in the pinched part of the P orbital."
     },
-
-    //Q&A for 'energy level and electrons'
     {
       "text": "Q: How many electrons can there be in each type of orbital shown above?<br><br>A: There can be a maximum of two electrons in any orbital, regardless of its shape.<br><br>Q: Where is the nucleus in each orbital?<br><br>A: The nucleus is at the center of each orbital. It is in the middle of the sphere in the S orbital and in the pinched part of the P orbital.",
       "tts": "Question: How many electrons can there be in each type of orbital shown above? Answer: There can be a maximum of two electrons in any orbital, regardless of its shape. Question: Where is the nucleus in each orbital? Answer: The nucleus is at the center of each orbital. It is in the middle of the sphere in the S orbital and in the pinched part of the P orbital."
@@ -182,23 +164,18 @@
   ],
 
   "images": [
-    //Storm photo
     {
       "tts": "Photo of stormy sky, with lightning striking over a city."
     },
-    //Model of atomic structure
     {
       "tts": "Model of atomic structure: This image illustrates atomic structure: a cluster of three neutrons (labelled '2') and three protons (labelled '3') are surrounded by two rings of electrons (labelled '1'). The inner ring has two electrons on it and the outer ring has one."
     },
-    //S orbital
     {
       "tts": "An image of an S Orbital: a multi-coloured set of rings made of small dots, radiating out from a red coloured centre. The rings closest to the centre are red and close together, the rings further out from the centre are pink and a bit more spaced apart, and the outer-most rings are blue and have more space between them."
     },
-    //P orbital
     {
       "tts": "An image of an P Orbital: two red coloured centres surrounded by rings, pressed together. The rings closest to each centre are red and close together, the rings further out from each centre are pink and a bit more spaced apart, and the outer-most rings are blue and have more space between them. Where the two meet the rings are bright blue and flattened together."
     },
-    //Energy levels and electrons
     {
       "tts": "Graphic showing energy levels and electrons: This diagram shows a circle (labelled '1') surrounded by three rings, labelled moving outward from the centre '2', '3' and '4'."
     }
