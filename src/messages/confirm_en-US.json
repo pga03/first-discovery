@@ -1,3 +1,29 @@
 {
-  "message": "<p2>Please confirm your selections.</p2>"
+  "message": "Please confirm your selections.",
+
+  "languageVoice": "The language is set to",
+
+  "speakVoice": "Text to speech is",
+
+  "speechRateVoice1": "The speech rate is set to",
+  "speechRateVoice2": "words per minute",
+
+  "contrastVoice": "The contrast setting is on",
+
+  "textSizeVoice1": "The text size is set to",
+  "textSizeVoice2": "times the original setting",
+
+  "letterSpaceVoice1": "The letter spacing is set to",
+  "letterSpaceVoice2": "times the original setting",
+
+  "lineSpaceVoice1": "The line spacing is set to",
+  "lineSpaceVoice2": "times the original setting",
+
+  "onScreenKeyboardVoice": "The on screen keyboard is",
+
+  "captionsVoice": "The captions are",
+
+  "showSoundsVoice": "The show sounds setting is",
+
+  "stickyKeysVoice": "The sticky Keys setting is"
 }

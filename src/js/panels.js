@@ -1096,42 +1096,62 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
 
             language: "languageConfirmation",
             languageLabel: "languageLabel",
+            languageVoice: "languageVoice",
 
             speak: "speakConfirmation",
             speakLabel: "speakLabel",
+            speakVoice: "speakVoice",
 
             speechRate: "speechRateConfirmation",
             speechRateLabel: "speechRateLabel",
+            speechRateVoice: "speechRateVoice",
 
             contrast: "contrastConfirmation",
             contrastLabel: "contrastLabel",
+            contrastVoice: "contrastVoice",
 
             textSize: "textSizeConfirmation",
             textSizeLabel: "textSizeLabel",
+            textSizeVoice: "textSizeVoice",
 
             letterSpace: "letterSpaceConfirmation",
             letterSpaceLabel: "letterSpaceLabel",
+            letterSpaceVoice: "letterSpaceVoice",
 
             lineSpace: "lineSpaceConfirmation",
             lineSpaceLabel: "lineSpaceLabel",
+            lineSpaceVoice: "lineSpaceVoice",
 
             onScreenKeyboard: "onScreenKeyboardConfirmation",
             onScreenKeyboardLabel: "onScreenKeyboardLabel",
+            onScreenKeyboardVoice: "onScreenKeyboardVoice",
 
             captions: "captionsConfirmation",
             captionsLabel: "captionsLabel",
+            captionsVoice: "captionsVoice",
 
             showSounds: "showSoundsConfirmation",
             showSoundsLabel: "showSoundsLabel",
+            showSoundsVoice: "showSoundsVoice",
 
             stickyKeys: "stickyKeysConfirmation",
-            stickyKeysLabel: "stickyKeysLabel"
-
+            stickyKeysLabel: "stickyKeysLabel",
+            stickyKeysVoice: "stickyKeysVoice"
         },
         protoTree: {
             message: {
                 markup: {messagekey: "message"}
-            }
+            },
+            languageVoice: {messagekey: "languageVoice"},
+            speakVoice: {messagekey: "speakVoice"},
+            speechRateVoice: {messagekey: "speechRateVoice"},
+            contrastVoice: {messagekey: "contrastVoice"},
+            textSizeVoice: {messagekey: "textSizeVoice"},
+            lineSpacingVoice: {messagekey: "lineSpacingVoice"},
+            onScreenKeyboardVoice: {messagekey: "onScreenKeyboardVoice"},
+            captionsVoice: {messagekey: "captionsVoice"},
+            showSoundsVoice: {messagekey: "showSoundsVoice"},
+            stickyKeysVoice: {messagekey: "stickyKeysVoice"}
         },
         modelListeners: {
             "{fluid.prefs.prefsEditor}.model.preferences": {
@@ -1312,70 +1332,120 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
         // On page load, this modelListener fires but the elements in the page are not yet created.
         // When this occurs, capture the changeContext and re-run momentarily.
         if ($("#" + that.options.selectors.languageLabel).length == 0) {
-            setTimeout(function(){gpii.firstDiscovery.panel.confirm.updatePreferenceValues(that, changeContext);}, 500 );
+            setTimeout(function () {
+                gpii.firstDiscovery.panel.confirm.updatePreferenceValues(that, changeContext);
+            }, 500);
         }
+        var language = changeContext.value.gpii_firstDiscovery_language;
 
         //Language
-        var languageValue = changeContext.value.gpii_firstDiscovery_language;
-        $("#" + that.options.selectors.languageLabel).text(that.options.friendlyNames[languageValue].labels.language);
-        $("#" + that.options.selectors.language).text(that.options.friendlyNames[languageValue].values.language);
+        $("#" + that.options.selectors.languageLabel).text(that.options.friendlyNames[language].labels.language);
+        var languageValue = that.options.friendlyNames[language].values.language;
+        $("#" + that.options.selectors.language).text(languageValue);
 
         //Text to Speech
-        $("#" + that.options.selectors.speakLabel).text(that.options.friendlyNames[languageValue].labels.speak);
+        $("#" + that.options.selectors.speakLabel).text(that.options.friendlyNames[language].labels.speak);
         var speakValue = changeContext.value.gpii_firstDiscovery_speak;
-        $("#" + that.options.selectors.speak).text(that.options.friendlyNames[languageValue].values.onOff[speakValue]);
+        speakValue = that.options.friendlyNames[language].values.onOff[speakValue];
+        $("#" + that.options.selectors.speak).text(speakValue);
 
         //Speech Rate
-        $("#" + that.options.selectors.speechRateLabel).text(that.options.friendlyNames[languageValue].labels.speechRate);
+        $("#" + that.options.selectors.speechRateLabel).text(that.options.friendlyNames[language].labels.speechRate);
         var speechRateValue = (changeContext.value.gpii_firstDiscovery_speechRate);
         var averageWordsPerMinute = 130;
-        var wordsPerMinute = Math.round(speechRateValue*averageWordsPerMinute);
-        $("#" + that.options.selectors.speechRate).text(wordsPerMinute + "wpm");
+        speechRateValue = Math.round(speechRateValue * averageWordsPerMinute);
+        $("#" + that.options.selectors.speechRate).text(speechRateValue + "wpm");
 
         //Contrast
-        $("#" + that.options.selectors.contrastLabel).text(that.options.friendlyNames[languageValue].labels.contrast);
+        $("#" + that.options.selectors.contrastLabel).text(that.options.friendlyNames[language].labels.contrast);
         var contrastValue = changeContext.value.fluid_prefs_contrast;
-        $("#" + that.options.selectors.contrast).text(that.options.friendlyNames[languageValue].values.contrast[contrastValue]);
+        $("#" + that.options.selectors.contrast).text(that.options.friendlyNames[language].values.contrast[contrastValue]);
 
         //Text Size
-        $("#" + that.options.selectors.textSizeLabel).text(that.options.friendlyNames[languageValue].labels.textSize);
+        $("#" + that.options.selectors.textSizeLabel).text(that.options.friendlyNames[language].labels.textSize);
         var textSizeValue = (changeContext.value.fluid_prefs_textSize);
-        var roundedTSValue = textSizeValue.toFixed(1);
-        $("#" + that.options.selectors.textSize).text(roundedTSValue + "x");
+        textSizeValue = textSizeValue.toFixed(1);
+        $("#" + that.options.selectors.textSize).text(textSizeValue + "x");
 
         //Letter Space
-        $("#" + that.options.selectors.letterSpaceLabel).text(that.options.friendlyNames[languageValue].labels.letterSpace);
+        $("#" + that.options.selectors.letterSpaceLabel).text(that.options.friendlyNames[language].labels.letterSpace);
         var letterSpaceValue = (changeContext.value.gpii_firstDiscovery_letterSpace);
-        var roundedLetterSpaceValue = letterSpaceValue.toFixed(1);
-        $("#" + that.options.selectors.letterSpace).text(roundedLetterSpaceValue + "x");
+        letterSpaceValue = letterSpaceValue.toFixed(1);
+        $("#" + that.options.selectors.letterSpace).text(letterSpaceValue + "x");
 
         //Line Space
-        $("#" + that.options.selectors.lineSpaceLabel).text(that.options.friendlyNames[languageValue].labels.lineSpace);
+        $("#" + that.options.selectors.lineSpaceLabel).text(that.options.friendlyNames[language].labels.lineSpace);
         var lineSpaceValue = (changeContext.value.gpii_firstDiscovery_lineSpace);
-        var roundedLineSpaceValue = lineSpaceValue.toFixed(1);
-        $("#" + that.options.selectors.lineSpace).text(roundedLineSpaceValue + "x");
+        lineSpaceValue = lineSpaceValue.toFixed(1);
+        $("#" + that.options.selectors.lineSpace).text(lineSpaceValue + "x");
 
         //On-ScreenKeyboard
-        $("#" + that.options.selectors.onScreenKeyboardLabel).text(that.options.friendlyNames[languageValue].labels.onScreenKeyboard);
+        $("#" + that.options.selectors.onScreenKeyboardLabel).text(that.options.friendlyNames[language].labels.onScreenKeyboard);
         var onScreenKeyboardValue = changeContext.value.gpii_firstDiscovery_onScreenKeyboard;
-        $("#" + that.options.selectors.onScreenKeyboard).text(that.options.friendlyNames[languageValue].values.onOff[onScreenKeyboardValue]);
+        onScreenKeyboardValue = that.options.friendlyNames[language].values.onOff[onScreenKeyboardValue];
+        $("#" + that.options.selectors.onScreenKeyboard).text(onScreenKeyboardValue);
 
         //Captions
-        $("#" + that.options.selectors.captionsLabel).text(that.options.friendlyNames[languageValue].labels.captions);
+        $("#" + that.options.selectors.captionsLabel).text(that.options.friendlyNames[language].labels.captions);
         var captionsValue = changeContext.value.gpii_firstDiscovery_captions;
-        $("#" + that.options.selectors.captions).text(that.options.friendlyNames[languageValue].values.onOff[captionsValue]);
+        captionsValue = that.options.friendlyNames[language].values.onOff[captionsValue];
+        $("#" + that.options.selectors.captions).text(captionsValue);
 
         //Show Sounds
-        $("#" + that.options.selectors.showSoundsLabel).text(that.options.friendlyNames[languageValue].labels.showSounds);
+        $("#" + that.options.selectors.showSoundsLabel).text(that.options.friendlyNames[language].labels.showSounds);
         var showSoundsValue = changeContext.value.gpii_firstDiscovery_showSounds;
-        $("#" + that.options.selectors.showSounds).text(that.options.friendlyNames[languageValue].values.onOff[showSoundsValue]);
+        showSoundsValue = that.options.friendlyNames[language].values.onOff[showSoundsValue];
+        $("#" + that.options.selectors.showSounds).text(showSoundsValue);
 
         //Sticky Keys
-        $("#" + that.options.selectors.stickyKeysLabel).text(that.options.friendlyNames[languageValue].labels.stickyKeys);
+        $("#" + that.options.selectors.stickyKeysLabel).text(that.options.friendlyNames[language].labels.stickyKeys);
         var stickyKeysValue = changeContext.value.gpii_firstDiscovery_stickyKeys;
-        $("#" + that.options.selectors.stickyKeys).text(that.options.friendlyNames[languageValue].values.onOff[stickyKeysValue]);
+        stickyKeysValue = that.options.friendlyNames[language].values.onOff[stickyKeysValue];
+        $("#" + that.options.selectors.stickyKeys).text(stickyKeysValue);
+
+        gpii.firstDiscovery.panel.confirm.buildPreferenceTableVoice(that, changeContext, languageValue, speakValue, speechRateValue,
+            contrastValue, textSizeValue, letterSpaceValue, lineSpaceValue, onScreenKeyboardValue, captionsValue, showSoundsValue, stickyKeysValue);
     };
 
+    gpii.firstDiscovery.panel.confirm.buildPreferenceTableVoice = function (that, changeContext, languageValue, speakValue, speechRateValue, contrastValue, textSizeValue, letterSpaceValue, lineSpaceValue, onScreenKeyboardValue, captionsValue, showSoundsValue, stickyKeysValue){
+
+        var languageVoice = fluid.stringTemplate("%text %value.", {"text": that.msgResolver.resolve("languageVoice"), "value": languageValue});
+        $("#" + that.options.selectors.languageVoice).text(languageVoice);
+
+        var speakVoice = fluid.stringTemplate("%text %value.", {"text": that.msgResolver.resolve("speakVoice"), "value": speakValue});
+        $("#" + that.options.selectors.speakVoice).text(speakVoice);
+
+        var speechRateVoice = fluid.stringTemplate("%text1 %value %text2.", {"text1": that.msgResolver.resolve("speechRateVoice1"), "value": speechRateValue, "text2": that.msgResolver.resolve("speechRateVoice2")});
+        $("#" + that.options.selectors.speechRateVoice).text(speechRateVoice);
+
+        var contrastVoice = fluid.stringTemplate("%text %value.", {"text": that.msgResolver.resolve("contrastVoice"), "value": contrastValue});
+        $("#" + that.options.selectors.contrastVoice).text(contrastVoice);
+
+        var textSizeVoice = fluid.stringTemplate("%text1 %value %text2.", {"text1": that.msgResolver.resolve("textSizeVoice1"), "value": textSizeValue, "text2": that.msgResolver.resolve("textSizeVoice2")});
+        $("#" + that.options.selectors.textSizeVoice).text(textSizeVoice);
+
+        var letterSpaceVoice = fluid.stringTemplate("%text1 %value %text2.", {"text1": that.msgResolver.resolve("letterSpaceVoice1"), "value": letterSpaceValue, "text2": that.msgResolver.resolve("letterSpaceVoice2")});
+        $("#" + that.options.selectors.letterSpaceVoice).text(letterSpaceVoice);
+
+        var lineSpaceVoice = fluid.stringTemplate("%text1 %value %text2.", {"text1": that.msgResolver.resolve("lineSpaceVoice1"), "value": lineSpaceValue, "text2": that.msgResolver.resolve("lineSpaceVoice2")});
+        $("#" + that.options.selectors.lineSpaceVoice).text(lineSpaceVoice);
+
+        var onScreenKeyboardVoice = fluid.stringTemplate("%text %value.", {"text": that.msgResolver.resolve("onScreenKeyboardVoice"), "value": onScreenKeyboardValue});
+        $("#" + that.options.selectors.onScreenKeyboardVoice).text(onScreenKeyboardVoice);
+
+        var captionsVoice = fluid.stringTemplate("%text %value.", {"text": that.msgResolver.resolve("captionsVoice"), "value": captionsValue});
+        $("#" + that.options.selectors.captionsVoice).text(captionsVoice);
+
+        var showSoundsVoice = fluid.stringTemplate("%text %value.", {"text": that.msgResolver.resolve("showSoundsVoice"), "value": showSoundsValue});
+        $("#" + that.options.selectors.showSoundsVoice).text(showSoundsVoice);
+
+        var stickyKeysVoice = fluid.stringTemplate("%text %value.", {"text": that.msgResolver.resolve("stickyKeysVoice"), "value": stickyKeysValue});
+        $("#" + that.options.selectors.stickyKeysVoice).text(stickyKeysVoice);
+
+        //array of all the preference  voicing
+        var preferencesVoicing = [languageVoice, speakVoice, speechRateVoice, contrastVoice, textSizeVoice, letterSpaceVoice,
+            lineSpaceVoice, onScreenKeyboardVoice, captionsVoice, showSoundsVoice, stickyKeysVoice];
+    };
 
     /*
      * Save Panel

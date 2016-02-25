@@ -732,7 +732,15 @@ input[type="text"].gpii-fd-keyboard-input:focus {
     color: #425165;
     text-align: left;
 }
-
+/* To hide speak text for confirmation table */
+.gpii-fd-confirm-table-hidden {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
 
 /* French-specific styles */
 html:lang(fr-FR) .gpii-fd-mute {
