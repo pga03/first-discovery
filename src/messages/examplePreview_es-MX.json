@@ -1,0 +1,100 @@
+{
+  "headings": [
+    {
+      "text": "Estándar",
+      "tts": "Estándar. Veintinueve noventa y nueve. Una descripción impresionante. 1 Base de datos Cinco Gigabyte de almacenamiento . Veinte usuarios ."
+    },
+    {
+      "text": "Medio",
+      "tts": "Medio. Cuarenta y nueve noventa y nueve. Una descripción impresionante. 5 bases de datos . Diez Gigabyte de almacenamiento . Cuarenta usuarios ."
+    },
+    {
+      "text": "Prima",
+      "tts": "Prima. Noventa y nueve noventa y nueve. Una descripción impresionante. Bases de datos ilimitadas . Almacenamiento ilimitado. Usuarios ilimitados."
+    }
+  ],
+  "prices": [
+    {
+      "text": "$29.99",
+      "tts": "Veintinueve Noventa y Nueve"
+    },
+    {
+      "text": "$49.99",
+      "tts": "Cuarenta y nueve noventa y nueve"
+    },
+    {
+      "text": "$99.99",
+      "tts": "Noventa y nueve noventa y nueve"
+    }
+  ],
+  "descriptions": [
+    {
+      "text": "Una descripción impresionante",
+      "tts": "Una descripción impresionante"
+    },
+    {
+      "text": "Una descripción impresionante",
+      "tts": "Una descripción impresionante"
+    },
+    {
+      "text": "Una descripción impresionante",
+      "tts": "Una descripción impresionante"
+    }
+  ],
+  "databases": [
+    {
+      "text": "1 Base de datos",
+      "tts": "Uno Base de datos"
+    },
+    {
+      "text": "5 Bases de datos",
+      "tts": "Cinco Bases de datos"
+    },
+    {
+      "text": "Bases de datos ilimitadas",
+      "tts": "Bases de datos ilimitadas"
+    }
+  ],
+  "data": [
+    {
+      "text": "5GB de almacenamiento",
+      "tts": "Cinco Gigabyte de almacenamiento"
+    },
+    {
+      "text": "10GB de almacenamiento",
+      "tts": "Diez Gigabyte de almacenamiento"
+    },
+    {
+      "text": "Almacenamiento ilimitado",
+      "tts": "Almacenamiento ilimitado"
+    }
+  ],
+  "users": [
+    {
+      "text": "20 usuarios",
+      "tts": "veinte usuarios"
+    },
+    {
+      "text": "40 usuarios",
+      "tts": "cuarenta Usuarios"
+    },
+    {
+      "text": "Sin límite de usuarios",
+      "tts": "Sin límite de usuarios"
+    }
+  ],
+  "buttons": [
+    {
+      "text": "Compra ahora",
+      "tts": "Compra ahora"
+    },
+    {
+      "text": "Compra ahora",
+      "tts": "Compra ahora"
+    },
+    {
+      "text": "Compra ahora",
+      "tts": "Compra ahora"
+    }
+  ]
+}

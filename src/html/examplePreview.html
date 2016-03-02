@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html class="lt-ie10" lang="en"> <![endif]-->
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation 5</title>
+
+    <!-- Foundation CSS links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/foundation.min.css">
+    <link rel="stylesheet" href="../../src/lib/foundation/css/foundation-icons/foundation-icons.css" />
+    
+    <!-- CSS required for the Prefs Editor -->
+    <link rel="stylesheet" type="text/css" href="../../src/lib/infusion/src/framework/preferences/css/Enactors.css"/>
+    <link rel="stylesheet" type="text/css" href="../../src/lib/infusion/src/framework/preferences/css/PrefsEditor.css"/>
+    <link rel="stylesheet" type="text/css" href="../../src/css/style.css"/>
+    
+    <!-- Internal Style Sheet -->
+    <style type="text/css">
+        .highlighted {
+            border: 5px solid yellow;
+        }        
+        body { 
+            padding-top:50px;
+        }
+        #searchResults {
+            background-image:url('../images/searchresult.png');
+            height: 4em;
+        }
+        .fl-theme-bw #searchResults { background-image:url('../images/searchresult_bw.png'); }
+        .fl-theme-wb #searchResults { background-image:url('../images/searchresult_wb.png'); }
+    </style>
+</head>
+
+<body>
+<div class="row">
+  <div class="small-4 columns">  
+    <ul class="pricing-table">
+      <li id="heading0" class="title" tabindex="0"></li>
+      <li id="price0" class="price"></li>
+      <li id="description0" class="description"></li>
+      <li id="database0" class="bullet-item"></li>
+      <li id="data0" class="bullet-item"></li>
+      <li id="user0" class="bullet-item"></li>
+      <li class="cta-button"><a id="button0" class="button radius" href="#"></a></li>
+    </ul>
+  </div>
+  <div class="small-4 columns">  
+    <ul class="pricing-table">
+      <li id="heading1" class="title" tabindex="0"></li>
+      <li id="price1" class="price"></li>
+      <li id="description1" class="description"></li>
+      <li id="database1" class="bullet-item"></li>
+      <li id="data1" class="bullet-item"></li>
+      <li id="user1" class="bullet-item"></li>
+      <li class="cta-button"><a id="button1" class="button radius" href="#"></a></li>
+    </ul>
+  </div>
+  <div class="small-4 columns">
+    <ul class="pricing-table">
+      <li id="heading2" class="title" tabindex="0"></li>
+      <li id="price2" class="price"></li>
+      <li id="description2" class="description"></li>
+      <li id="database2" class="bullet-item"></li>
+      <li id="data2" class="bullet-item"></li>
+      <li id="user2" class="bullet-item"></li>
+      <li class="cta-button"><a id="button2" class="button success round" href="#"></a></li>
+    </ul>
+  </div>
+  
+  </div>
+<!-- Calls to the foundation Javascript files -->
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/foundation.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // populate the preview's text.
+        fetch_and_insert_text();
+        // Start infusion
+        $(document).foundation();
+    });
+    
+    // Parses the query string and returns an object container key-value pairs from
+    // decoded querystring variables
+    function getQueryStringKeys() {
+        var queryKvps = {};
+        var kvps = window.location.search.substring(1).split("&");
+        for (var i = 0; i < kvps.length; i++) {
+            var kvp_pieces = kvps[i].split("=");
+            queryKvps[decodeURIComponent(kvp_pieces[0])] = decodeURIComponent(kvp_pieces[1]);
+        }
+        return queryKvps;
+    }
+
+    // Parses the "lang" variable out of the querystring, returning the languageCode to use
+    // for the page text
+    function getLanguageCode() {
+        var languageCode = "en-US"; //default to english
+        var queryKvps = getQueryStringKeys();
+        if (queryKvps.lang && queryKvps.lang != "undefined") {
+            languageCode = queryKvps["lang"];
+        }
+        return languageCode;
+    }
+
+    // Fetch the language text file based on lang Query String variable, and pass
+    // the returned json data to the function that will place strings in the UI
+    function fetch_and_insert_text() {
+        var langaugeCode = getLanguageCode();
+        var url = '../messages/examplePreview_' + langaugeCode + ".json";
+        $.ajax({
+            type: 'GET',
+            url: url,
+            dataType: 'json',
+            success: function (data) {
+                insertText(data);
+                setUpTts(data);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log("error occured: " + textStatus);
+            }
+        });
+    }
+
+    // Place strings into the UI from the given json data in arg 0
+    function insertText(example_preview_text) {
+        //headers
+        $("#heading0").text(example_preview_text.headings[0].text);
+        $("#heading1").text(example_preview_text.headings[1].text);
+        $("#heading2").text(example_preview_text.headings[2].text);
+        
+        //prices
+        $("#price0").text(example_preview_text.prices[0].text);
+        $("#price1").text(example_preview_text.prices[1].text);
+        $("#price2").text(example_preview_text.prices[2].text);
+        
+        //descriptions
+        $("#description0").text(example_preview_text.descriptions[0].text);    
+        $("#description1").text(example_preview_text.descriptions[1].text);    
+        $("#description2").text(example_preview_text.descriptions[2].text); 
+        
+        //databases
+        $("#database0").text(example_preview_text.databases[0].text); 
+        $("#database1").text(example_preview_text.databases[1].text);      
+        $("#database2").text(example_preview_text.databases[2].text);
+
+        //data storage
+        $("#data0").text(example_preview_text.data[0].text); 
+        $("#data1").text(example_preview_text.data[1].text); 
+        $("#data2").text(example_preview_text.data[2].text); 
+        
+        //users
+        $("#user0").text(example_preview_text.users[0].text); 
+        $("#user1").text(example_preview_text.users[1].text); 
+        $("#user2").text(example_preview_text.users[2].text); 
+        
+        //buttons
+        $("#button0").text(example_preview_text.buttons[0].text); 
+        $("#button1").text(example_preview_text.buttons[1].text);  
+        $("#button2").text(example_preview_text.buttons[2].text);  
+    }
+    
+    // Attach events to page elements so they can self voice when navigated to
+    function setUpTts(text) {
+        // The parent window contains a self voicing function from the First Discovery Tool that
+        // the preview can hook into to voice itself
+        var speechQueueFunction = window.parent.fluid.queryIoCSelector(window.parent.fluid.rootComponent, "gpii.firstDiscovery.selfVoicing")[0].queueSpeech;
+
+        //Headings
+        $("#heading0").focus(function () {
+            speechQueueFunction(text.headings[0].tts);
+        });
+        $("#heading1").focus(function () {
+            speechQueueFunction(text.headings[1].tts);
+        });
+        $("#heading2").focus(function () {
+            speechQueueFunction(text.headings[2].tts);
+        });
+        
+        //buttons
+        $("#button0").focus(function () {
+            speechQueueFunction(text.buttons[0].tts);
+        });
+        $("#button1").focus(function () {
+            speechQueueFunction(text.buttons[1].tts);
+        });
+        $("#button2").focus(function () {
+            speechQueueFunction(text.buttons[2].tts);
+        });
+        
+        //highlight based on focus
+        $("[tabindex='0']").focus(function () {
+            $(this).addClass("highlighted");
+        });
+        $("[tabindex='0']").blur(function () {
+            $(this).removeClass("highlighted");
+        });
+    }
+    
+</script>
+</body>
+
+</html>

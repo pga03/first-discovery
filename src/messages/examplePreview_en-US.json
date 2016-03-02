@@ -1,0 +1,100 @@
+{
+  "headings": [
+    {
+      "text": "Standard",
+      "tts": "Standard. Twenty-Nine Ninety-Nine. An awesome description. 1 Database Five Gigabyte Storage. Twenty Users."
+    },
+    {
+      "text": "Medium",
+      "tts": "Medium. Forty-Nine Ninety-Nine. An awesome description. 5 Databases. Ten Gigabyte Storage. Forty Users."
+    },
+    {
+      "text": "Premium",
+      "tts": "Premium. Ninety-Nine Ninety-Nine. An awesome description. Unlimited Databases. Unlimited Storage. Unlimited Users."
+    }
+  ],
+  "prices": [
+    {
+      "text": "$29.99",
+      "tts": "Twenty-Nine Ninety-Nine"
+    },
+    {
+      "text": "$49.99",
+      "tts": "Forty-Nine Ninety-Nine"
+    },
+    {
+      "text": "$99.99",
+      "tts": "Ninety-Nine Ninety-Nine"
+    }
+  ],
+  "descriptions": [
+    {
+      "text": "An awesome description",
+      "tts": "An awesome description"
+    },
+    {
+      "text": "An awesome description",
+      "tts": "An awesome description"
+    },
+    {
+      "text": "An awesome description",
+      "tts": "An awesome description"
+    }
+  ],
+  "databases": [
+    {
+      "text": "1 Database",
+      "tts": "1 Database"
+    },
+    {
+      "text": "5 Databases",
+      "tts": "5 Databases"
+    },
+    {
+      "text": "Unlimited Databases",
+      "tts": "Unlimited Databases"
+    }
+  ],
+  "data": [
+    {
+      "text": "5GB Storage",
+      "tts": "Five Gigabyte Storage"
+    },
+    {
+      "text": "10GB Storage",
+      "tts": "Ten Gigabyte Storage"
+    },
+    {
+      "text": "Unlimited Storage",
+      "tts": "Unlimited Storage"
+    }
+  ],
+  "users": [
+    {
+      "text": "20 Users",
+      "tts": "Twenty Users"
+    },
+    {
+      "text": "40 Users",
+      "tts": "Forty Users"
+    },
+    {
+      "text": "Unlimited Users",
+      "tts": "Unlimited Users"
+    }
+  ],
+  "buttons": [
+    {
+      "text": "Buy Now",
+      "tts": "Buy Now"
+    },
+    {
+      "text": "Buy Now",
+      "tts": "Buy Now"
+    },
+    {
+      "text": "Buy Now",
+      "tts": "Buy Now"
+    }
+  ]
+}

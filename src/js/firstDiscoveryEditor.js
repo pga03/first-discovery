@@ -290,6 +290,8 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
             previewpage = "searchpreview.html";
         } else if (previewname === "electron") {
             previewpage = "electronpreview.html";
+        } else if (previewname === "example") {
+        	previewpage = "examplePreview.html";
         }
 
         //unsupported languages will return english preview.
